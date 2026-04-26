@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation</title>
+
+<style>
+body {
+    font-family: 'Georgia', serif;
+    background: #f3f6f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    width: 330px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+h1 {
+    color: #3c6e47;
+    margin: 5px 0;
+}
+h3 {
+    color: #888;
+    font-weight: normal;
+}
+.names {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.date-box {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-weight: bold;
+}
+.location {
+    margin: 15px 0;
+    font-size: 15px;
+}
+.countdown {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.buttons button {
+    width: 45%;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.yes {
+    background: #d4f5d2;
+}
+.no {
+    background: #f5d2d2;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h3>Exclusive Invitation For</h3>
+    <h1>Hanan Muhammed</h1>
+
+    <div class="names">
+        Safvan Shareef ❤️ Fathima Afna
+    </div>
+
+    <div class="date-box">
+        <div>DECEMBER<br>2030</div>
+        <div style="font-size: 30px;">28</div>
+        <div>04 PM</div>
+    </div>
+
+    <div class="location">
+        📍 Makkah, Saudi Arabia (Jeddah)
+    </div>
+
+    <div class="countdown" id="countdown"></div>
+
+    <div class="buttons">
+        <button class="yes">Yes, In Sha Allah!</button>
+        <button class="no">Can't make it</button>
+    </div>
+</div>
+
+<script>
+const eventDate = new Date("December 28, 2030 16:00:00").getTime();
+
+const timer = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+    if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "Event Started";
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
