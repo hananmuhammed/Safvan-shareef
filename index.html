@@ -1,69 +1,167 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation</title>
+
+<title>Invitation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 body {
-    font-family: 'Georgia', serif;
-    background: #f3f6f2;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f2f4f1;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 20px;
 }
+
 .card {
-    background: white;
+    background: #f9faf8;
+    border-radius: 20px;
     padding: 25px;
-    border-radius: 18px;
+    width: 360px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.title-small {
     text-align: center;
-    width: 330px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+    font-size: 11px;
+    color: #777;
 }
-h1 {
-    color: #3c6e47;
-    margin: 5px 0;
+
+.title-name {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: #5f7d66;
+    margin: 10px 0 30px;
 }
-h3 {
+
+.section-text {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
     color: #888;
-    font-weight: normal;
+    margin-bottom: 20px;
 }
-.names {
-    margin: 20px 0;
-    font-size: 20px;
-    font-weight: bold;
-}
-.date-box {
+
+.couples {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
-    font-weight: bold;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 25px;
 }
-.location {
-    margin: 15px 0;
-    font-size: 15px;
-}
-.countdown {
-    margin-top: 10px;
-    font-weight: bold;
-}
-.buttons button {
+
+.couple {
     width: 45%;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+}
+
+.amp {
+    color: #5f7d66;
+}
+
+.heart {
+    color: #5f7d66;
+}
+
+.date-box {
+    display: flex;
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.date-box div {
+    flex: 1;
     padding: 10px;
-    margin: 5px;
-    border: none;
+}
+
+.date-box .middle {
+    font-size: 28px;
+    font-weight: bold;
+    color: #5f7d66;
+}
+
+.location {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.location h3 {
+    font-family: 'Playfair Display', serif;
+    color: #5f7d66;
+    margin: 5px 0;
+}
+
+.countdown-title {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.box {
+    background: #eee;
     border-radius: 10px;
-    cursor: pointer;
+    width: 23%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.box span {
+    font-size: 18px;
     font-weight: bold;
 }
-.yes {
-    background: #d4f5d2;
+
+.rsvp {
+    margin-top: 20px;
 }
+
+.rsvp-title {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.rsvp-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    width: 48%;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.yes {
+    border: 2px solid #bfe3c2;
+    color: #4c8b5f;
+}
+
 .no {
-    background: #f5d2d2;
+    border: 2px solid #f0c0c0;
+    color: #c86b6b;
 }
 </style>
 </head>
@@ -71,50 +169,62 @@ h3 {
 <body>
 
 <div class="card">
-    <h3>Exclusive Invitation For</h3>
-    <h1>Hanan Muhammed</h1>
 
-    <div class="names">
-        Safvan Shareef ❤️ Fathima Afna
+<div class="title-small">EXCLUSIVE INVITATION FOR</div>
+<div class="title-name">Hanan Muhammed</div>
+
+<div class="section-text">TOGETHER WITH THEIR FAMILIES</div>
+
+<div class="couples">
+    <div class="couple">
+        Safvan Shareef <br><span class="amp">&</span><br> Fathima Afna
     </div>
+    <div class="heart">♡</div>
+</div>
 
-    <div class="date-box">
-        <div>DECEMBER<br>2030</div>
-        <div style="font-size: 30px;">28</div>
-        <div>04 PM</div>
+<div class="section-text">REQUEST THE HONOR OF YOUR PRESENCE</div>
+
+<div class="date-box">
+    <div>DECEMBER<br>2030</div>
+    <div class="middle">28</div>
+    <div>04 PM</div>
+</div>
+
+<div class="location">
+    <h3>MAKKAH</h3>
+    <div>📍 Saudi Arabia, Jeddah</div>
+</div>
+
+<div class="countdown-title">COUNTDOWN TO RECEPTION</div>
+
+<div class="countdown">
+    <div class="box"><span id="d">0</span><br>DAYS</div>
+    <div class="box"><span id="h">0</span><br>HOURS</div>
+    <div class="box"><span id="m">0</span><br>MINS</div>
+    <div class="box"><span id="s">0</span><br>SECS</div>
+</div>
+
+<div class="rsvp">
+    <div class="rsvp-title">WILL YOU ATTEND?</div>
+    <div class="rsvp-buttons">
+        <div class="btn yes">✔ Yes, In Sha Allah!</div>
+        <div class="btn no">✖ Can't make it</div>
     </div>
+</div>
 
-    <div class="location">
-        📍 Makkah, Saudi Arabia (Jeddah)
-    </div>
-
-    <div class="countdown" id="countdown"></div>
-
-    <div class="buttons">
-        <button class="yes">Yes, In Sha Allah!</button>
-        <button class="no">Can't make it</button>
-    </div>
 </div>
 
 <script>
 const eventDate = new Date("December 28, 2030 16:00:00").getTime();
 
-const timer = setInterval(function() {
+setInterval(() => {
     const now = new Date().getTime();
-    const distance = eventDate - now;
+    const gap = eventDate - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-    const seconds = Math.floor((distance % (1000*60)) / 1000);
-
-    document.getElementById("countdown").innerHTML =
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-    if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "Event Started";
-    }
+    document.getElementById("d").innerText = Math.floor(gap / (1000*60*60*24));
+    document.getElementById("h").innerText = Math.floor((gap % (1000*60*60*24)) / (1000*60*60));
+    document.getElementById("m").innerText = Math.floor((gap % (1000*60*60)) / (1000*60));
+    document.getElementById("s").innerText = Math.floor((gap % (1000*60)) / 1000);
 }, 1000);
 </script>
 
