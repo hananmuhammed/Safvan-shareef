@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOC<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Invitation</title>
+<title>Wedding Invitation</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
@@ -12,102 +12,137 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: #f2f4f1;
+    background: #f3f5f2;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    height: 100vh;
 }
 
+/* OPEN SCREEN */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #f3f5f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    flex-direction: column;
+}
+
+.open-btn {
+    padding: 12px 25px;
+    border: 2px solid #5f7d66;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* CARD */
 .card {
     background: #f9faf8;
-    border-radius: 20px;
-    padding: 25px;
+    border-radius: 22px;
+    padding: 28px;
     width: 360px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
 }
 
-.title-small {
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.small {
     text-align: center;
     letter-spacing: 2px;
     font-size: 11px;
-    color: #777;
+    color: #888;
 }
 
-.title-name {
+.name {
     text-align: center;
     font-family: 'Playfair Display', serif;
-    font-size: 26px;
+    font-size: 28px;
     color: #5f7d66;
-    margin: 10px 0 30px;
+    margin: 10px 0 35px;
 }
 
-.section-text {
+.section {
     text-align: center;
     font-size: 11px;
     letter-spacing: 2px;
     color: #888;
-    margin-bottom: 20px;
-}
-
-.couples {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
     margin-bottom: 25px;
 }
 
 .couple {
-    width: 45%;
+    text-align: center;
     font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    font-size: 22px;
+    margin-bottom: 25px;
 }
 
 .amp {
     color: #5f7d66;
+    display: block;
+    margin: 5px 0;
 }
 
-.heart {
-    color: #5f7d66;
+.request {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 40px;
 }
 
 .date-box {
     display: flex;
-    border: 1px solid #dcdcdc;
-    border-radius: 12px;
+    border: 1px solid #ddd;
+    border-radius: 14px;
     overflow: hidden;
-    margin: 20px 0;
     text-align: center;
 }
 
 .date-box div {
     flex: 1;
-    padding: 10px;
+    padding: 12px;
 }
 
-.date-box .middle {
-    font-size: 28px;
+.middle {
+    font-size: 30px;
     font-weight: bold;
-    color: #5f7d66;
-}
-
-.location {
-    text-align: center;
-    margin: 10px 0;
-}
-
-.location h3 {
     font-family: 'Playfair Display', serif;
     color: #5f7d66;
-    margin: 5px 0;
 }
 
-.countdown-title {
+.arabic-date {
+    text-align: center;
+    margin: 10px 0;
+    color: #888;
+    font-size: 13px;
+}
+
+.place {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.place h3 {
+    font-family: 'Playfair Display', serif;
+    color: #5f7d66;
+}
+
+.count-title {
     text-align: center;
     font-size: 11px;
     letter-spacing: 2px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .countdown {
@@ -124,23 +159,14 @@ body {
     padding: 10px 0;
 }
 
-.box span {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.rsvp {
-    margin-top: 20px;
-}
-
 .rsvp-title {
     text-align: center;
     font-size: 11px;
     letter-spacing: 2px;
-    margin-bottom: 10px;
+    margin: 20px 0 10px;
 }
 
-.rsvp-buttons {
+.rsvp {
     display: flex;
     justify-content: space-between;
 }
@@ -150,8 +176,6 @@ body {
     padding: 15px;
     border-radius: 12px;
     text-align: center;
-    font-size: 13px;
-    cursor: pointer;
 }
 
 .yes {
@@ -168,20 +192,27 @@ body {
 
 <body>
 
-<div class="card">
-
-<div class="title-small">EXCLUSIVE INVITATION FOR</div>
-<div class="title-name">Hanan Muhammed</div>
-
-<div class="section-text">TOGETHER WITH THEIR FAMILIES</div>
-
-<div class="couples">
-    <div class="couple">
-        Safvan Shareef <br><span class="amp">&</span><br> Fathima Afna
-    </div>
+<!-- OPEN SCREEN -->
+<div class="overlay" id="overlay">
+    <h2>You're Invited 💌</h2>
+    <div class="open-btn" onclick="openInvite()">Open Invitation</div>
 </div>
 
-<div class="section-text">REQUEST THE HONOR OF YOUR PRESENCE</div>
+<!-- INVITE -->
+<div class="card" id="card">
+
+<div class="small">EXCLUSIVE INVITATION FOR</div>
+<div class="name">Hanan Muhammed</div>
+
+<div class="section">TOGETHER WITH THEIR FAMILIES</div>
+
+<div class="couple">
+    Safvan Shareef
+    <span class="amp">&</span>
+    Fathima Afna
+</div>
+
+<div class="request">REQUEST THE HONOR OF YOUR PRESENCE</div>
 
 <div class="date-box">
     <div>DECEMBER<br>2030</div>
@@ -189,12 +220,14 @@ body {
     <div>04 PM</div>
 </div>
 
-<div class="location">
+<div class="arabic-date">15 Jumada al-Thani 1452</div>
+
+<div class="place">
     <h3>MAKKAH</h3>
     <div>📍 Saudi Arabia, Jeddah</div>
 </div>
 
-<div class="countdown-title">COUNTDOWN TO RECEPTION</div>
+<div class="count-title">COUNTDOWN TO RECEPTION</div>
 
 <div class="countdown">
     <div class="box"><span id="d">0</span><br>DAYS</div>
@@ -203,17 +236,30 @@ body {
     <div class="box"><span id="s">0</span><br>SECS</div>
 </div>
 
+<div class="rsvp-title">WILL YOU ATTEND?</div>
+
 <div class="rsvp">
-    <div class="rsvp-title">WILL YOU ATTEND?</div>
-    <div class="rsvp-buttons">
-        <div class="btn yes">✔ Yes, In Sha Allah!</div>
-        <div class="btn no">✖ Can't make it</div>
-    </div>
+    <div class="btn yes">✔ Yes, In Sha Allah! 😍</div>
+    <div class="btn no">✖ Unfortunately, I can’t make it</div>
 </div>
 
 </div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <script>
+function openInvite() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("card").classList.add("show");
+
+    const music = document.getElementById("music");
+    music.play(); // plays when user taps (allowed)
+}
+
+// countdown
 const eventDate = new Date("December 28, 2030 16:00:00").getTime();
 
 setInterval(() => {
